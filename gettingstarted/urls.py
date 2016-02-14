@@ -7,9 +7,9 @@ import app.views
 
 
 from django.conf.urls import patterns, include, url
-# from app.api.api import BranchAppResource
+from app.app.api.api import BranchAppResource
 
-# branch_app_resource = BranchAppResource()
+branch_app_resource = BranchAppResource()
 
 
 # Examples:
@@ -20,5 +20,5 @@ urlpatterns = [
     url(r'^$', app.views.index, name='index'),
     url(r'^db', app.views.db, name='db'),
     url(r'^admin/', include(admin.site.urls)),
-    # url(r'^api/', include(branch_app_resource.urls)),
+    url(r'^api/', include(branch_app_resource.urls)),
 ]

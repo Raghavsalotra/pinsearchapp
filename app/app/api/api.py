@@ -12,7 +12,7 @@ from datetime import datetime
 from django.utils import timezone
 from django.db import connection, transaction, DatabaseError, IntegrityError
 import time
-from hello.app.models.models import City
+from app.app.models.models import City
 import json
 import hmac
 import base64,hashlib,urllib2
