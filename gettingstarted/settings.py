@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 import os
 import dj_database_url
 
+# DEBUG = True
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
@@ -37,7 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'app'
+    'app',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -76,13 +77,62 @@ WSGI_APPLICATION = 'gettingstarted.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+
+
+# Heroku DB
+# DATABASES = {
+
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'heroku_1ff03f1866c3248',
+#         'USER': 'bca1d2b17d80e5',
+#         'PASSWORD': 'b27f18baf89d2c9',
+#         'HOST': 'us-cdbr-iron-east-03.cleardb.net',
+#         'PORT': '3306',
+#     }
+# }
+
+
+
 DATABASES = {
+
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'sql2106595',
+        'USER': 'sql2106595',
+        'PASSWORD': 'xM7*bD8*',
+        'HOST': 'sql2.freemysqlhosting.net',
+        'PORT': '3306',
     }
 }
 
+TASTYPIE_DEFAULT_FORMATS = ['json',]
+TASTYPIE_CANNED_ERROR = "Oops, we broke it!"
+API_LIMIT_PER_PAGE = 50
+API_LIMIT_PER_PAGE = 0 # no limit
+TASTYPIE_FULL_DEBUG = True
+TASTYPIE_ALLOW_MISSING_SLASH = True
+# sql2.freemysqlhosting.net
+
+
+# LOCAL DB
+# DATABASES = {
+
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'hire22',
+#         'USER': 'root',
+#         'PASSWORD': 'root',
+#         'HOST': '127.0.0.1',
+#         'PORT': '3306',
+#     }
+# }
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
 
@@ -105,7 +155,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Kolkata'
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
