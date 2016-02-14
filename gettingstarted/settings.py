@@ -14,6 +14,11 @@ import dj_database_url
 
 # DEBUG = True
 
+
+# Application definition
+BASIC_WWW_AUTHENTICATION_USERNAME = "papa10"
+BASIC_WWW_AUTHENTICATION_PASSWORD = "papa10"
+BASIC_WWW_AUTHENTICATION = True
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -50,6 +55,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'gettingstarted.middleware.basicauthentication.BasicAuthenticationMiddleware'
 )
 
 ROOT_URLCONF = 'gettingstarted.urls'
