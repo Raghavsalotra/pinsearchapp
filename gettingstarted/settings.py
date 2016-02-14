@@ -105,7 +105,6 @@ WSGI_APPLICATION = 'gettingstarted.wsgi.application'
 # }
 
 
-
 DATABASES = {
 
     'default': {
