@@ -7,12 +7,9 @@ import app.views
 
 
 from django.conf.urls import patterns, include, url
-from app.app.api.api import BranchAppResource,PicsResource,SbimageResource,LocationResource
+from app.app.api.api import LocationResource
 from app.app.views import location
 
-branch_app_resource = BranchAppResource()
-pics_resource = PicsResource()
-sbimage_resource = SbimageResource()
 location_resource = LocationResource()
 
 
@@ -23,11 +20,7 @@ location_resource = LocationResource()
 urlpatterns = [
     url(r'^$', app.views.index, name='index'),
     url(r'^db', app.views.db, name='db'),
-    url(r'^admin/', include(admin.site.urls)),
-    url(r'^api/', include(branch_app_resource.urls)),
-    url(r'^api/', include(pics_resource.urls)),
-    url(r'^api/', include(sbimage_resource.urls)),
  	url(r'^api/', include(location_resource.urls)),
-	url(r'^v0/location/$',location.locationSearch),
+	url(r'^v0/locations/$',location.locationSearch),
    
 ]
