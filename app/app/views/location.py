@@ -5,11 +5,11 @@ from django.db import connection
 
 def locationSearch(request):
 
-    pincode = request.REQUEST.get("pincode","")
-    district = request.REQUEST.get("district","")
-    state = request.REQUEST.get("state","")
-    locality = request.REQUEST.get("locality","")
-    combine_search = request.REQUEST.get("q","")
+    pincode = request.GET.get("pincode","")
+    district = request.GET.get("district","")
+    state = request.GET.get("state","")
+    locality = request.GET.get("locality","")
+    combine_search = request.GET.get("q","")
     
     if pincode == '' and district == '' and state == '' and locality == '' and combine_search == '':
         return HttpResponseBadRequest(content="Please pass any parameter pincode (or) district (or) state (or) locality (or) q for combine search")

@@ -8,6 +8,7 @@ import app.views
 
 from django.conf.urls import patterns, include, url
 from app.app.api.api import BranchAppResource,PicsResource,SbimageResource,LocationResource
+from app.app.views import location
 
 branch_app_resource = BranchAppResource()
 pics_resource = PicsResource()
@@ -26,5 +27,7 @@ urlpatterns = [
     url(r'^api/', include(branch_app_resource.urls)),
     url(r'^api/', include(pics_resource.urls)),
     url(r'^api/', include(sbimage_resource.urls)),
- 	url(r'^api/', include(location_resource.urls)),   
+ 	url(r'^api/', include(location_resource.urls)),
+	url(r'^v0/location/$',location.locationSearch),
+   
 ]
