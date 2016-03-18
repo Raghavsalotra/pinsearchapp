@@ -18,7 +18,7 @@ import dj_database_url
 # Application definition
 BASIC_WWW_AUTHENTICATION_USERNAME = "papa10"
 BASIC_WWW_AUTHENTICATION_PASSWORD = "papa10"
-BASIC_WWW_AUTHENTICATION = True
+# BASIC_WWW_AUTHENTICATION = True
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -79,6 +79,17 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'gettingstarted.wsgi.application'
 
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        'TIMEOUT': 60
+    },
+    'resources': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        'TIMEOUT': 60
+    }
+}
+
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
@@ -105,39 +116,49 @@ WSGI_APPLICATION = 'gettingstarted.wsgi.application'
 # }
 
 
-DATABASES = {
+# DATABASES = {
 
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'sql2106595',
+#         'USER': 'sql2106595',
+#         'PASSWORD': 'xM7*bD8*',
+#         'HOST': 'sql2.freemysqlhosting.net',
+#         'PORT': '3306',
+#     }
+# }
+
+DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'sql2106595',
-        'USER': 'sql2106595',
-        'PASSWORD': 'xM7*bD8*',
-        'HOST': 'sql2.freemysqlhosting.net',
-        'PORT': '3306',
+        'NAME': 'heroku_69f818841ff5dd1',
+        'USER': 'b7d2bc28020b2d',
+        'PASSWORD': '4e843a73',
+        'HOST': 'us-cdbr-iron-east-03.cleardb.net',
+        'PORT': '',
     }
 }
-
 TASTYPIE_DEFAULT_FORMATS = ['json',]
 TASTYPIE_CANNED_ERROR = "Oops, we broke it!"
-API_LIMIT_PER_PAGE = 50
-API_LIMIT_PER_PAGE = 0 # no limit
+API_LIMIT_PER_PAGE = 10
+# API_LIMIT_PER_PAGE = 0 # no limit
 TASTYPIE_FULL_DEBUG = True
 TASTYPIE_ALLOW_MISSING_SLASH = True
 # sql2.freemysqlhosting.net
 
 
 # LOCAL DB
-# DATABASES = {
+### DATABASES = {
 
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'hire22',
-#         'USER': 'root',
-#         'PASSWORD': 'root',
-#         'HOST': '127.0.0.1',
-#         'PORT': '3306',
-#     }
-# }
+#    'default': {
+#        'ENGINE': 'django.db.backends.mysql',
+#        'NAME': 'sbdb',
+#        'USER': 'root',
+#        'PASSWORD': 'root',
+#        'HOST': '127.0.0.1',
+#        'PORT': '3306',
+#    }
+#} 
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
 

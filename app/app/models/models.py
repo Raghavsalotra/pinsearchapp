@@ -2,6 +2,22 @@ from django.db import models
 from tastypie.utils.timezone import now
 from django.db.models.options import Options
 
+
+class Location(models.Model):
+    id = models.AutoField(primary_key=True)
+    officename = models.CharField(max_length=25)
+    pincode = models.IntegerField()
+    officeType = models.CharField(max_length=25)
+    Deliverystatus = models.CharField(max_length=25)
+    divisionname = models.CharField(max_length=25)
+    regionname = models.CharField(max_length=25)
+    circlename = models.CharField(max_length=25)
+    Taluk = models.CharField(max_length=25)
+    Districtname = models.CharField(max_length=25)
+    statename = models.CharField(max_length=25)
+    class Meta:
+        db_table = u'location'
+
 class ApiApplications(models.Model):
     owner_type = models.CharField(max_length=10)
     owner_id = models.IntegerField()
@@ -612,3 +628,23 @@ class Users(models.Model):
     class Meta:
         managed = False
         db_table = 'users'
+
+
+class Sbpics(models.Model):
+    id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=50)
+    url = models.CharField(max_length=50)
+    size = models.CharField(max_length=20)
+    class Meta:
+        db_table = 'sbpics'
+
+class Sbimage(models.Model):
+    id = models.AutoField(primary_key=True)
+    url = models.CharField(max_length=67, blank=True, null=True)
+    image_path = models.CharField(max_length=116, blank=True, null=True)
+    name = models.CharField(max_length=34, blank=True, null=True)
+    view = models.CharField(max_length=4, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'sbpics'
