@@ -1,40 +1,30 @@
-# python-getting-started
+Documentation:
 
-A barebones Python app, which can easily be deployed to Heroku.
+1) I have used django framework for front end and backend as MYSQL.
 
-This application supports the [Getting Started with Python on Heroku](https://devcenter.heroku.com/articles/getting-started-with-python) article - check it out.
+2) As I am not having domain and hosting space i was using open source platform like git as VCS and heroku for deployment server.
 
-## Running Locally
+3) The URL which you have given is absoulte URL. (i.e., pinsearch main domain is using so i cannot get the same absolute url)
 
-Make sure you have Python [installed properly](http://install.python-guide.org).  Also, install the [Heroku Toolbelt](https://toolbelt.heroku.com/) and [Postgres](https://devcenter.heroku.com/articles/heroku-postgresql#local-setup).
+To get the project source codes, please use the below command in terminal:
+
+git clone https://github.com/kpurna/pinsearchapp.git
 
 
-```sh
-$ git clone git@github.com:heroku/python-getting-started.git
-$ cd python-getting-started
-$ pip install -r requirements.txt
-$ createdb python_getting_started
-$ heroku local:run python manage.py migrate
-$ python manage.py collectstatic
-$ heroku local
-```
+Test Cases:
 
-Your app should now be running on [localhost:5000](http://localhost:5000/).
+1) As per the requirement i have created the API in such a way that we can use for filteration purpose with the mention below URL'S.
 
-## Deploying to Heroku
+Example URLS:
 
-```sh
-$ heroku create
-$ git push heroku master
-$ heroku run python manage.py migrate
-$ heroku open
-```
-or
+1) https://devsbapi.herokuapp.com/api/location (Tastypie API)
 
-[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+1) https://devsbapi.herokuapp.com/v0/locations/?pincode=517541 (filteration with pincode)
 
-## Documentation
+2) https://devsbapi.herokuapp.com/v0/locations/?district=Nellore (filteration with district)
 
-For more information about using Python on Heroku, see these Dev Center articles:
+3) https://devsbapi.herokuapp.com/v0/locations/?state=ANDHRA PRADESH (filteration with state)
+ 
+4) https://devsbapi.herokuapp.com/v0/locations/?locality=Gudur (filteration with locality)
 
-- [Python on Heroku](https://devcenter.heroku.com/categories/python)
+5) https://devsbapi.herokuapp.com/v0/locations/?q=Nellore (filteration with district or state or locality)
